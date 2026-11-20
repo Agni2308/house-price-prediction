@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estimated house price</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="result">
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">House Price Prediction</a>
+      <nav aria-label="Main">
+        <a href="index.html" >Home</a>
+        <a href="predict.html" aria-current="page">Predict</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="wrap result-head">
+      <h1>Estimated house price</h1>
+      <p class="price" id="price" aria-live="polite"></p>
+      <p class="price-sub" id="price-sub"></p>
+    </section>
+
+    <div class="wrap result-grid" id="result-body" hidden>
+      <div>
+        <div class="warning" id="warnings" role="note" hidden></div>
+        <h2>Your input</h2>
+        <table class="data summary"><tbody id="summary-rows"></tbody></table>
+      </div>
+      <aside class="side" id="model-side"></aside>
+    </div>
+
+    <p class="wrap loading" id="no-result" hidden>There is no prediction to show yet. <a href="predict.html">Go to the prediction form</a>.</p>
+
+    <div class="wrap actions result-actions">
+      <a class="btn primary" href="predict.html?edit=1">Edit inputs or change model</a>
+      <a class="btn" href="predict.html?new=1">Start a new prediction</a>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Mini project by Agni Vaghasiya, UIT. Prices are estimates from a student machine-learning model, not property valuations.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

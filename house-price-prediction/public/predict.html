@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predict a house price</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="predict">
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">House Price Prediction</a>
+      <nav aria-label="Main">
+        <a href="index.html" >Home</a>
+        <a href="predict.html" aria-current="page">Predict</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap page-head">
+      <h1>Predict a house price</h1>
+      <p class="lede">Fill in the property details and choose a model. All fields except balconies are required.</p>
+    </div>
+
+    <div class="wrap predict-grid">
+      <form id="predict-form" novalidate>
+        <div class="error-summary" id="error-summary" role="alert" hidden></div>
+        <p class="loading" id="load-status">Loading the form options&hellip;</p>
+
+        <fieldset class="group">
+          <legend>Property</legend>
+          <div class="field" data-field="location">
+            <label for="location">Location</label>
+            <input id="location" name="location" list="location-list" autocomplete="off" placeholder="Start typing, for example Whitefield">
+            <datalist id="location-list"></datalist>
+            <p class="hint" id="location-hint">Type Other if your location is not in the list.</p>
+          </div>
+          <div class="field" data-field="area_type">
+            <label for="area_type">Area type</label>
+            <select id="area_type" name="area_type"><option value="">Choose an area type</option></select>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend>Size</legend>
+          <div class="field" data-field="total_sqft">
+            <label for="total_sqft">Total area (sqft)</label>
+            <input id="total_sqft" name="total_sqft" type="number" step="any" inputmode="decimal" placeholder="1500">
+            <p class="hint" id="sqft-hint"></p>
+          </div>
+          <div class="field" data-field="bhk">
+            <label for="bhk">Bedrooms</label>
+            <input id="bhk" name="bhk" type="number" step="1" inputmode="numeric" placeholder="3">
+            <p class="hint" id="bhk-hint"></p>
+          </div>
+          <div class="field" data-field="bath">
+            <label for="bath">Bathrooms</label>
+            <input id="bath" name="bath" type="number" step="1" inputmode="numeric" placeholder="2">
+            <p class="hint" id="bath-hint"></p>
+          </div>
+          <div class="field" data-field="balcony">
+            <label for="balcony">Balconies <span class="optional">(optional)</span></label>
+            <input id="balcony" name="balcony" type="number" step="1" inputmode="numeric" placeholder="2">
+            <p class="hint" id="balcony-hint"></p>
+          </div>
+        </fieldset>
+
+        <fieldset class="group" data-field="model">
+          <legend>Model</legend>
+          <div class="model-choice" id="model-choice"></div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn primary" id="submit-btn">Predict price</button>
+          <button type="button" class="btn" id="clear-btn">Clear form</button>
+        </div>
+      </form>
+
+      <aside class="side">
+        <h2>What the models use</h2>
+        <p>Only these six inputs. They are the exact features the models were trained on, and your input goes through the same preprocessing before the price is predicted.</p>
+        <p>Prices are in lakhs of INR, as in the dataset description. One lakh is 100,000 rupees.</p>
+        <p>Locations outside the list are treated as one shared &ldquo;rare location&rdquo; group, just as in training.</p>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Mini project by Agni Vaghasiya, UIT. Prices are estimates from a student machine-learning model, not property valuations.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

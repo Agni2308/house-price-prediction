@@ -1,0 +1,35 @@
+TEST-SET RESULTS (price in lakhs INR; MAE/RMSE in lakhs, MSE in lakhs^2)
+            Model     MAE        MSE     RMSE     R2
+Linear Regression 41.4529 11942.9397 109.2838 0.4165
+    Random Forest 33.5975  7906.3129  88.9175 0.6137
+
+TRAIN-SET RESULTS
+            Model     MAE        MSE     RMSE     R2
+Linear Regression 42.2637 11875.6050 108.9752 0.4808
+    Random Forest 24.9048  4099.5835  64.0280 0.8208
+
+5-FOLD CROSS-VALIDATION ON TRAIN DATA
+            Model  CV RMSE mean  CV RMSE std  CV R2 mean  CV R2 std
+Linear Regression      117.2283      23.8123      0.3708     0.2306
+    Random Forest       91.4117       7.6065      0.6170     0.0760
+
+Better model by test RMSE: Random Forest
+Train rows: 9413 | Test rows: 2354
+
+CLEANING LOG
+Raw rows: 13320
+Removed duplicate rows: 692
+Removed rows missing location/size/bath: 73
+Removed rows with total_sqft in unsupported units: 46
+Removed rows with < 300 sqft per bedroom: 733
+Removed rows with bath > bhk + 2: 9
+Clean rows: 11767
+Remaining missing values (balcony): 434
+
+RANDOM FOREST IMPORTANCE BY ORIGINAL FEATURE
+total_sqft    0.7712
+bath          0.0588
+location      0.0511
+bhk           0.0425
+balcony       0.0392
+area_type     0.0371

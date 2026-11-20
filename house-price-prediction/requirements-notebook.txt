@@ -1,0 +1,6 @@
+# Everything needed to run the notebook that trains and evaluates the models.
+-r requirements.txt
+matplotlib==3.11.2
+seaborn==0.13.2
+jupyter
+ipykernel

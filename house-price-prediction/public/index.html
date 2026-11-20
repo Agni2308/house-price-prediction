@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>House Price Prediction Using Machine Learning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">House Price Prediction</a>
+      <nav aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="predict.html" >Predict</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>House price prediction using machine learning</h1>
+          <p class="lede">Enter the details of a Bengaluru property and get an estimated price from a trained Linear Regression or Random Forest model.</p>
+          <div class="actions">
+            <a class="btn primary" href="predict.html">Predict a price</a>
+            <a class="btn" href="#results">See model results</a>
+          </div>
+        </div>
+        <aside class="hero-card" id="hero-card" aria-label="Test-set results" hidden>
+          <h2>Test-set results</h2>
+          <table>
+            <thead><tr><th scope="col">Model</th><th scope="col">RMSE (lakhs)</th><th scope="col">R&sup2;</th></tr></thead>
+            <tbody id="hero-rows"></tbody>
+          </table>
+          <p class="note">Measured on 2,354 houses the models never saw during training.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap about">
+      <dl class="facts">
+        <div><dt>Objective</dt>
+          <dd>Compare Linear Regression and Random Forest for predicting house prices, then let anyone try the saved models on their own inputs.</dd></div>
+        <div><dt>Dataset</dt>
+          <dd>Bengaluru House Price Data from Kaggle: 13,320 listings, 11,767 after cleaning. The models use location, area type, total area, bedrooms, bathrooms and balconies.</dd></div>
+        <div><dt>Models</dt>
+          <dd>
+            <p><strong>Linear Regression.</strong> Ordinary least squares on the preprocessed inputs. A simple, interpretable baseline.</p>
+            <p><strong>Random Forest.</strong> An average of 100 decision trees (at least 3 samples per leaf, random_state 42). It can capture non-linear effects.</p>
+          </dd></div>
+        <div><dt>Technologies</dt>
+          <dd>Python, pandas, NumPy, scikit-learn, Matplotlib, Flask, HTML, CSS and JavaScript.</dd></div>
+      </dl>
+    </section>
+
+    <section class="wrap how">
+      <h2>How a prediction is made</h2>
+      <ol>
+        <li>You enter the property details and choose a model.</li>
+        <li>The API checks your input and applies the same preprocessing pipeline used in training.</li>
+        <li>The saved model you chose predicts the price. Nothing is retrained.</li>
+        <li>The estimated price is shown with a summary of your input.</li>
+      </ol>
+    </section>
+
+    <section class="wrap results" id="results" hidden>
+      <h2>Experimental performance of the two models</h2>
+      <p>These are offline test-set results from the training notebook. They describe how well each model did on held-out houses, and are not a prediction for your inputs.</p>
+      <div class="table-scroll">
+        <table class="data">
+          <thead><tr><th scope="col">Model</th><th scope="col">MAE (lakhs)</th><th scope="col">RMSE (lakhs)</th><th scope="col">R&sup2;</th></tr></thead>
+          <tbody id="results-rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Mini project by Agni Vaghasiya, UIT. Prices are estimates from a student machine-learning model, not property valuations.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

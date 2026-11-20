@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "{models/**,results/comparison.csv,public/**}",
+      "excludeFiles": "{notebooks/**,research-paper/**,presentation/**,results/figures/**,results/screenshots/**,data/**,tests/**}"
+    }
+  }
+}
